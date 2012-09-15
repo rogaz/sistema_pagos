@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+  <h1><%= @alumno.nombre %></h1><br/>
+  <table class="table table-bordered table-hover table-condensed">
+    <tr>
+  <% @alumno_costos.each do |alumno_costo| %>
+    
+      <th><%= alumno_costo.cargo_tipo.titulo %></th>
+    
+  <% end %>
+    </tr>
+    <tr>
+  <% @alumno_costos.each do |alumno_costo| %>
+      <td><%= alumno_costo.cantidad %></td>
+  <% end %>
+    </tr>
+  </table>
+
+<%= link_to 'Lista de Alumnos', alumnos_path, :class => "btn btn-small btn-info" %> |
+<%= link_to 'Editar', edit_alumno_path(@alumno), :class => "btn btn-small btn-warning" %>

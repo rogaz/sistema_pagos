@@ -1,0 +1,23 @@
+<h1>Listing cargo_tipos</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cargo_tipos.each do |cargo_tipo| %>
+  <tr>
+    <td><%= cargo_tipo.titulo %></td>
+    <td><%= link_to 'Show', cargo_tipo %></td>
+    <td><%= link_to 'Edit', edit_cargo_tipo_path(cargo_tipo) %></td>
+    <td><%= link_to 'Destroy', cargo_tipo, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cargo tipo', new_cargo_tipo_path %>

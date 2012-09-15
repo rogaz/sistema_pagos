@@ -1,0 +1,29 @@
+<h1>Nuevo Alumno</h1>
+<table class="table">
+<%= form_tag(crear_alumno_path, :method => "post") do %>
+  <tr>
+    <td><%= label_tag "Nombre" %></td>
+    <td><%= text_field_tag 'nombre' %></td>
+  </tr>
+  <tr>
+    <td><%= label_tag "Colegiatura" %></td>
+    <td><%= check_box_tag "colegiatura", '1' %></td>
+  </tr>
+  <tr id="colcost">
+    <td><%= label_tag "Costo" %></td>
+    <td><%= number_field_tag "costo_col" %></td>
+  </tr>
+  <tr>
+    <td><%= label_tag "Por Hora" %></td>
+    <td><%= check_box_tag "por_hora", '1' %></td>
+  </tr>
+  <tr id="phcost">
+    <td><%= label_tag "Costo" %></td>
+    <td><%= number_field_tag "costo_phora" %></td>
+  </tr>
+  <tr>
+    <td><%= submit_tag "Guardar Alumno", :class => "btn" %></td>
+    <td></td>
+  </tr>
+<% end %>
+</table>

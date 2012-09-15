@@ -1,0 +1,29 @@
+<%= form_for(@alumno_costo) do |f| %>
+  <% if @alumno_costo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@alumno_costo.errors.count, "error") %> prohibited this alumno_costo from being saved:</h2>
+
+      <ul>
+      <% @alumno_costo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :alumno_id %><br />
+    <%= f.collection_select :alumno_id, Alumno.all, :id, :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :cargo_tipo_id %><br />
+    <%= f.collection_select :cargo_tipo_id, CargoTipo.all, :id, :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad %><br />
+    <%= f.text_field :cantidad %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

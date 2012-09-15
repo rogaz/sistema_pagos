@@ -1,0 +1,28 @@
+<% @cargotipos.each do |cargotipo| %>
+  <%= link_to "Alumnos de " + cargotipo.titulo, cargo_alumnos_path(cargotipo.id), :class => "btn btn-small btn-info" %>
+<% end %>
+<h1>Lista de Alumnos</h1>
+<% if @alumnos.empty? %>
+<% else %>
+<table class="table table-bordered table-hover table-condensed">
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @alumnos.each do |alumno| %>
+  
+  <tr>
+    <td><%= alumno.nombre %></td>
+    <td><%= link_to 'Detalles', alumno, :class => "btn btn-small btn-info" %></td>
+    <td><%= link_to 'Editar', edit_alumno_path(alumno), :class => "btn btn-small btn-warning" %></td>
+    <td><%= link_to 'Eliminar', alumno, confirm: 'Are you sure?', method: :delete, :class => "btn btn-small btn-danger" %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+<br />
+
+<%= link_to 'Crear Alumno', new_alumno_path, :class => "btn" %><br/>

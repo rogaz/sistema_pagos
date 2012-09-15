@@ -1,0 +1,17 @@
+<% @desc_tit = "Inicia Sesión" %>
+<div id="content-login">
+<h2>Inicia Sesión</h2>
+<%= form_for(:user_session, :url => user_session_url, :class => "form-horizontal") do |f| %>
+  <div class="control-group">
+    <div class="control-label"><%= f.label :login %></div>
+    <div class="controls"><%= f.text_field :login %></div>
+  </div>
+  <div class="control-group">
+    <div class="control-label"><%= f.label :password %></div>
+    <div class="controls"><%= f.password_field :password %></div>
+  </div>
+  <div class="control-group">
+    <div class="controls"><%= f.submit "Inicia Sesión", :class => "btn btn-success" %></div>
+  </div>
+<% end %>
+</div>

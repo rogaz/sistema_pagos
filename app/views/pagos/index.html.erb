@@ -1,0 +1,27 @@
+<h1>Listing pagos</h1>
+
+<table>
+  <tr>
+    <th>Cantidad</th>
+    <th>Fecha</th>
+    <th>Alumno</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pagos.each do |pago| %>
+  <tr>
+    <td><%= pago.cantidad %></td>
+    <td><%= pago.fecha %></td>
+    <td><%= pago.alumno_id %></td>
+    <td><%= link_to 'Show', pago %></td>
+    <td><%= link_to 'Edit', edit_pago_path(pago) %></td>
+    <td><%= link_to 'Destroy', pago, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pago', new_pago_path %>

@@ -1,0 +1,2 @@
+module CargoTiposHelper
+end

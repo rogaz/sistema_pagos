@@ -1,0 +1,24 @@
+<%= link_to 'Lista de Alumnos', alumnos_path, :class => "btn btn-small btn-info" %>
+<% @cargotipos.each do |cargotipo| %>
+  <%= link_to "Alumnos de " + cargotipo.titulo, cargo_alumnos_path(cargotipo.id), :class => "btn btn-small btn-info" %>
+<% end %>
+
+<h1>Alumnos de <%= @cargo.titulo %></h1>
+
+<table class="table table-bordered table-hover table-condensed">
+  <tr>
+    <th>Alumno</th>
+    <th>Cantidad</th>
+  </tr>
+
+<% @alumno_costos.each do |alumno_costo| %>
+  <tr>
+    <td><%= alumno_costo.alumno.nombre %></td>
+    <td><%= alumno_costo.cantidad %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Alumno costo', new_alumno_costo_path %>

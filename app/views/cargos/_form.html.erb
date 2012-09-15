@@ -1,0 +1,29 @@
+<%= form_for(@cargo) do |f| %>
+  <% if @cargo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cargo.errors.count, "error") %> prohibited this cargo from being saved:</h2>
+
+      <ul>
+      <% @cargo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :alumno_id %><br />
+    <%= f.number_field :alumno_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_cargo_id %><br />
+    <%= f.number_field :tipo_cargo_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

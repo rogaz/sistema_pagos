@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cantidad:</b>
+  <%= @pago.cantidad %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @pago.fecha %>
+</p>
+
+<p>
+  <b>Alumno:</b>
+  <%= @pago.alumno_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_pago_path(@pago) %> |
+<%= link_to 'Back', pagos_path %>

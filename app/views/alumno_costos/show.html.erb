@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cantidad:</b>
+  <%= @alumno_costo.cantidad %>
+</p>
+
+<p>
+  <b>Alumno:</b>
+  <%= @alumno_costo.alumno_id %>
+</p>
+
+<p>
+  <b>Cargo tipo:</b>
+  <%= @alumno_costo.cargo_tipo_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_alumno_costo_path(@alumno_costo) %> |
+<%= link_to 'Back', alumno_costos_path %>

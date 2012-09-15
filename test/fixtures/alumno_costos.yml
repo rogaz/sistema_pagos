@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cantidad: 9.99
+  alumno_id: 1
+  cargo_tipo_id: 1
+
+two:
+  cantidad: 9.99
+  alumno_id: 1
+  cargo_tipo_id: 1

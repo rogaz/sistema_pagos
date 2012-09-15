@@ -1,0 +1,90 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    <% if es_de_col? %>
+        on_col = true;
+        $("#colegiatura").attr('checked', true);
+        $("#colcost").show(100);
+    <% else %>
+        on_col = false;
+        $("#colegiatura").attr('checked', false);
+        $("#colcost").hide(100);
+    <% end %>
+
+    <% if es_de_phr? %>
+        on_phr = true;
+        $("#por_hora").attr('checked', true)
+        $("#phcost").show(100);
+    <% else %>
+        on_phr = false;
+        $("#por_hora").attr('checked', false)
+        $("#phcost").hide(100);
+    <% end %>
+
+    
+    $("#colegiatura").click(function(){
+      if (on_col == false){
+        $("#colegiatura").attr('checked', true);
+        $("#colcost").show(200);
+        on_col = true;
+      } else {
+        $("#colegiatura").attr('checked', false);
+        $("#colcost").hide(200);
+        on_col = false;
+      }
+    });
+
+    
+    $("#por_hora").click(function(){
+      if (on_phr == false){
+        $("#por_hora").attr('checked', true);
+        $("#phcost").show(200);
+        on_phr = true;
+      } else {
+        $("#por_hora").attr('checked', false);
+        $("#phcost").hide(200);
+        on_phr = false;
+      }
+    });
+
+  });
+</script>
+<%= link_to "Lista de Alumnos", alumnos_path, :class => "btn btn-small btn-info right" %>
+<h1>Editando a Alumno</h1>
+
+<%= form_tag(alumno_path(@alumno), :method => "put", :class => "form-horizontal") do %>
+<div class="control-group">
+  <div class="control-label"><%= label_tag "Nombre" %></div>
+  <div class="controls"><%= text_field_tag 'nombre', @alumno.nombre %></div>
+</div>
+<div id="azul">
+<div class="control-group">
+  <div class="control-label"><%= label_tag "Colegiatura" %></div>
+  <div class="controls"><%= check_box_tag "colegiatura", '1' %></div>
+</div>
+<div class="control-group" id="colcost">
+  <div class="control-label"<%= label_tag "Costo" %></div>
+    <% if es_de_col? %>
+      <div class="controls"><%= number_field_tag "costo_col", costo_col %></div>
+    <% else %>
+      <div class="controls"><%= number_field_tag "costo_col"%></div>
+    <% end %>
+</div>
+</div>
+<div id="verde">
+<div class="control-group">
+  <div class="control-label"><%= label_tag "Por Hora" %></div>
+  <div class="controls"><%= check_box_tag "por_hora", '1' %></div>
+</div>
+<div class="control-group" id="phcost" >
+  <div class="control-label"><%= label_tag "Costo" %></div>
+    <% if es_de_phr? %>
+      <div class="controls"><%= number_field_tag "costo_phora", costo_phora %></div>
+    <% else %>
+      <div class="controls"><%= number_field_tag "costo_phora" %></div>
+    <% end %>
+</div>
+</div>
+<div class="control-group" style="margin-top: 10px;">
+  <div class="controls"><%= submit_tag "Guardar Alumno", :class => "btn" %></div>
+</div>
+<% end %>

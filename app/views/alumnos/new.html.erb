@@ -1,0 +1,64 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#colegiatura").attr('checked', false);
+    $("#por_hora").attr('checked', false);
+    $("#phcost").hide(100);
+    $("#colcost").hide(100);
+    var on_col = false
+    $("#colegiatura").click(function(){
+      if (on_col == false){
+        $("#colegiatura").attr('checked', true);
+        $("#colcost").show(200);
+        on_col = true;
+      } else {
+        $("#colegiatura").attr('checked', false);
+        $("#colcost").hide(200);
+        on_col = false
+      }
+    });
+    
+    var on_phr = false
+    $("#por_hora").click(function(){
+      if (on_phr == false){
+        $("#por_hora").attr('checked', true);
+        $("#phcost").show(200);
+        on_phr = true;
+      } else {
+        $("#por_hora").attr('checked', false);
+        $("#phcost").hide(200);
+        on_phr = false
+      }
+    });
+  });
+</script>
+<h1>Nuevo Alumno</h1>
+
+<%= form_tag(alumnos_path, :method => "post", :name => "alumno_new", :class => "form-horizontal") do %>
+  <div class="control-group">
+    <div class="control-label"><%= label_tag "Nombre" %></div>
+    <div class="controls"><%= text_field_tag 'nombre' %></div>
+  </div>
+  <div id="azul">
+  <div class="control-group">
+    <div class="control-label"><%= label_tag "Colegiatura" %></div>
+    <div class="controls"><%= check_box_tag "colegiatura", '1', :id => "colegiatura" %></div>
+  </div>
+  <div class="control-group" id="colcost">
+    <div class="control-label"<%= label_tag "Costo" %></div>
+    <div class="controls"><%= number_field_tag "costo_col", "" %></div>
+  </div>
+  </div>
+  <div id="verde">
+  <div class="control-group">
+    <div class="control-label"><%= label_tag "Por Hora" %></div>
+    <div class="controls"><%= check_box_tag "por_hora", '1', :id => "por_hora" %></div>
+  </div>
+  <div class="control-group" id="phcost">
+    <div class="control-label"><%= label_tag "Costo" %></div>
+    <div class="controls"><%= number_field_tag "costo_phora" %></div>
+  </div>
+  </div>
+  <div class="control-group" style="margin-top: 10px;">
+    <div class="controls"><%= submit_tag "Guardar Alumno", :class => "btn" %></div>
+  </div>
+<% end %>
