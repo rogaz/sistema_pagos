@@ -12,14 +12,14 @@
  *= require_tree .
 */
 #content{
-    width: 500px;
+    width: 700px;
     height: auto;
     margin: 0 auto;
     background: #FFF;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-    margin-top: 80px;
+    margin-top: 30px;
     padding: 30px;
     -webkit-box-shadow: 2px 2px 2px 2px #AAA;
     box-shadow: 2px 2px 2px 2px #AAA;
@@ -48,4 +48,36 @@
 .right{
     float: right;
     margin-bottom: 10px;
+}
+
+#flash{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    opacity:0.85;
+    filter:alpha(opacity=85); /* For IE8 and earlier */
+    font-size: 1.2em;
+}
+
+.success{
+    border: 4px solid #269b01;
+    background: #66d942;
+    color: #178A00;
+}
+
+.notice{
+    border: 4px solid #b37004;
+    background: #e1a92d;
+    color: #a26003;
+}
+
+.error{
+    border: 4px solid #ea290a;
+    background: #fe6047;
+    color: #cd1401;
 }

@@ -23,6 +23,28 @@
 <% end %>
 </table>
 <% end %>
+
+<table class="table table-bordered table-hover table-condensed">
+  <tr>
+    <th>Alumo_costo ID</th>
+    <th>Cant</th>
+    <th>Alumno_id</th>
+    <th>Alumno</th>
+    <th>Cargo_tipo_id</th>
+    <th>Cargo_tipo</th>
+  </tr>
+
+<% @alumno_costos.each do |alumno_costo| %>
+  <tr>
+    <td><%= alumno_costo.id %></td>
+    <td><%= alumno_costo.cantidad %></td>
+    <td><%= alumno_costo.alumno_id %></td>
+    <td><%= alumno_costo.alumno.nombre %></td>
+    <td><%= alumno_costo.cargo_tipo_id %></td>
+    <td><%= alumno_costo.cargo_tipo.titulo %></td>
+  </tr>
+<% end %>
+</table>
 <br />
 
 <%= link_to 'Crear Alumno', new_alumno_path, :class => "btn" %><br/>

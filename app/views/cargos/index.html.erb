@@ -1,10 +1,13 @@
 <h1>Listing cargos</h1>
 
-<table>
+<table class="table table-bordered table-hover table-condensed">
   <tr>
+    <th>ID</th>
     <th>Fecha</th>
+    <th>Alumno ID</th>
     <th>Alumno</th>
     <th>Tipo cargo</th>
+    <th>Cantidad</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +15,12 @@
 
 <% @cargos.each do |cargo| %>
   <tr>
-    <td><%= cargo.fecha %></td>
+    <td><%= cargo.id %></td>
+    <td><%= fecha_con_formato(cargo.fecha) %></td>
     <td><%= cargo.alumno_id %></td>
+    <td><%= cargo.alumno.nombre %></td>
     <td><%= cargo.tipo_cargo_id %></td>
+    <td><%= cargo.cantidad %></td>
     <td><%= link_to 'Show', cargo %></td>
     <td><%= link_to 'Edit', edit_cargo_path(cargo) %></td>
     <td><%= link_to 'Destroy', cargo, confirm: 'Are you sure?', method: :delete %></td>

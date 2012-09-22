@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Titulo</th>
     <th></th>
     <th></th>
@@ -10,6 +11,7 @@
 
 <% @cargo_tipos.each do |cargo_tipo| %>
   <tr>
+    <td><%= cargo_tipo.id %></td>
     <td><%= cargo_tipo.titulo %></td>
     <td><%= link_to 'Show', cargo_tipo %></td>
     <td><%= link_to 'Edit', edit_cargo_tipo_path(cargo_tipo) %></td>

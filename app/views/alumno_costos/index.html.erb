@@ -1,7 +1,7 @@
-<%= link_to 'Lista de Alumnos', alumnos_path, :class => "btn btn-small btn-info" %>
 <% @cargotipos.each do |cargotipo| %>
   <%= link_to "Alumnos de " + cargotipo.titulo, cargo_alumnos_path(cargotipo.id), :class => "btn btn-small btn-info" %>
 <% end %>
+<%= link_to 'Lista de Alumnos', alumnos_path, :class => "btn btn-small btn-info" %>
 
 <h1>Alumnos de <%= @cargo.titulo %></h1>
 
