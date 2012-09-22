@@ -19,7 +19,6 @@
         <% if current_user_session %>
         <ul class="nav pull-right" id="barra-superior">
           <li><%= link_to 'Alumnos', alumnos_path %></li>
-          <li><%= link_to 'Cargo_tipos', cargo_tipos_path %></li>
           <li><%= link_to 'Cargos', cargos_path %></li>
           <li><%= link_to 'Pagos', pagos_path %></li>
           <li><%= link_to "Cerrar Sesión", logout_path, :method => "delete" %></li>

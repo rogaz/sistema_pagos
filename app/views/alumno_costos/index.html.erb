@@ -9,14 +9,22 @@
   <tr>
     <th>Alumno</th>
     <th>Cantidad</th>
+    <% if @cargo.titulo == "Por Hora" %>
+    <th></th>
+    <% end %>
   </tr>
 
 <% @alumno_costos.each do |alumno_costo| %>
   <tr>
     <td><%= alumno_costo.alumno.nombre %></td>
     <td><%= alumno_costo.cantidad %></td>
+    <% if @cargo.titulo == "Por Hora" %>
+      <%= form_tag(cargos_path, :method => "post") do %>
+        <%= hidden_field_tag "cargotipo", @cargo.id %>
+        <%= hidden_field_tag "alumno", alumno_costo.alumno_id %>
+        <td><%= submit_tag "Agregar Cargo", :confirm => "Desea crear cargo?", :class => "btn btn-success" %></td>
+      <% end %>
+    <% end %>
   </tr>
 <% end %>
 </table>
-
-<br />

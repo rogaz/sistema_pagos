@@ -45,6 +45,8 @@ class AlumnosController < ApplicationController
     @alumno = Alumno.find(params[:id])
     @alumno_costos = AlumnoCosto.where(:alumno_id => params[:id])
     @cargo_tipos = CargoTipo.all
+    @cargos = Cargo.where(:alumno_id => @alumno.id)
+    @pagos = Pago.where(:alumno_id => @alumno.id)
     
     respond_to do |format|
       format.html # show.html.erb

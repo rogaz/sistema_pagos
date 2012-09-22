@@ -40,11 +40,21 @@ class CargosController < ApplicationController
   # POST /cargos
   # POST /cargos.json
   def create
-    @cargo = Cargo.new(params[:cargo])
+    if params[:cargotipo] == nil
+      @cargo = Cargo.new(params[:cargo])
+    else
+      cantidad = AlumnoCosto.find_by_cargo_tipo_id(params[:cargotipo]).cantidad
+      @cargo = Cargo.new
+      @cargo.tipo_cargo_id = params[:cargotipo]
+      @cargo.alumno_id = params[:alumno]
+      @cargo.fecha = Time.now
+      @cargo.cantidad = cantidad
+    end
 
     respond_to do |format|
       if @cargo.save
-        format.html { redirect_to @cargo, notice: 'Cargo was successfully created.' }
+        flash[:success] = "El cargo ha sido agregado correctamente"
+        format.html { redirect_to cargos_path }
         format.json { render json: @cargo, status: :created, location: @cargo }
       else
         format.html { render action: "new" }

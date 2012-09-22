@@ -16,5 +16,24 @@
     </tr>
   </table>
 
+  <% unless @cargos == nil %>
+    <% total_cargos = 0 %>
+    <% @cargos.each do |cargo| %>
+      <% total_cargos += cargo.cantidad %>
+    <% end %>
+    <div style="width: 100%; text-align: right;">Total de Cargos = <%= total_cargos %></div>
+  <% end %>
+
+  <% unless @pagos == nil %>
+    <% total_pagos = 0 %>
+    <% @pagos.each do |pago| %>
+      <% total_pagos += pago.cantidad %>
+    <% end %>
+    <div style="width: 100%; text-align: right;">Total de Pagos = <%= total_pagos %></div>
+  <% end %>
+
+  <div style="width: 100%; text-align: right; font-weight: bold;">El alumno debe = <%= total_cargos - total_pagos %></div>
+  
+
 <%= link_to 'Lista de Alumnos', alumnos_path, :class => "btn btn-small btn-info" %> |
 <%= link_to 'Editar', edit_alumno_path(@alumno), :class => "btn btn-small btn-warning" %>
