@@ -22,7 +22,7 @@
       <%= form_tag(cargos_path, :method => "post") do %>
         <%= hidden_field_tag "cargotipo", @cargo.id %>
         <%= hidden_field_tag "alumno", alumno_costo.alumno_id %>
-        <td><%= submit_tag "Agregar Cargo", :confirm => "Desea crear cargo?", :class => "btn btn-success" %></td>
+        <td><%= submit_tag "Agregar Cargo", :confirm => "¿Desea crear cargo?", :class => "btn btn-success" %></td>
       <% end %>
     <% end %>
   </tr>

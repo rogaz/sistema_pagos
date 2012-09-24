@@ -177,6 +177,10 @@ class AlumnosController < ApplicationController
       cargo = CargoTipo.where(:titulo => 'Colegiatura').first
       alumno_costo_col = AlumnoCosto.where(:alumno_id => @alumno.id, :cargo_tipo_id => cargo.id).first
       unless alumno_costo_col == nil
+        @cargos_eliminar = Cargo.where(:alumno_id => @alumno.id, :tipo_cargo_id => cargo.id)
+        @cargos_eliminar.each do |cargo_eliminar|
+          cargo_eliminar.destroy
+        end
         alumno_costo_col.destroy
       end
     end
@@ -207,6 +211,10 @@ class AlumnosController < ApplicationController
       cargo2 = CargoTipo.where(:titulo => "Por Hora").first
       alumno_costo_phr = AlumnoCosto.where(:alumno_id => @alumno.id, :cargo_tipo_id => cargo2.id).first
       unless alumno_costo_phr == nil
+        @cargos_eliminar = Cargo.where(:alumno_id => @alumno.id, :tipo_cargo_id => cargo2.id)
+        @cargos_eliminar.each do |cargo_eliminar|
+          cargo_eliminar.destroy
+        end
         alumno_costo_phr.destroy
       end
     end
