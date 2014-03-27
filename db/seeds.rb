@@ -7,3 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
     #Cargo_tipo.create([{titulo: 'Colegiatura'}, {titulo: 'Por hora'}])
     #Alumno.create([{nombre: 'Juan'}, {nombre: 'Pedro'}])
+
+CargoTipo.delete_all
+
+ActiveRecord::Base.connection.execute 'ALTER SEQUENCE cargo_tipos_id_seq RESTART WITH 1;'
+
+CargoTipo.create(titulo: 'Por Hora')
+CargoTipo.create(titulo: 'Colegiatura')
+
+p CargoTipo.all
+
+puts 'cargo_tipos creados correctamente.'
